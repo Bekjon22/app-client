@@ -8,6 +8,8 @@ import PrimarySearchAppBar from "./component/Navbar";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/LoginPage";
 import MyCollections from "./pages/MyCollections";
+import {CollectionItem} from "./pages/CollectionItem";
+import UserPage from "./pages/UserPage";
 
 
 
@@ -22,6 +24,8 @@ function App() {
                 <Route exact path ='/signUp' element={<SignUp/>}/>
                 <Route exact path ='/signIn' element={<SignIn/>}/>
                 <Route exact path ='/myAccount' element={<MyCollections/>}/>
+                <Route  path ='/collection/:id' element={<CollectionItem/>}/>
+                <Route exact path ='/user' element={<UserPage/>}/>
 
 
             </Routes>

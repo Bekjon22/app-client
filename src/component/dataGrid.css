@@ -39,3 +39,9 @@
 .modal-body{
     min-height: 70vh;
 }
+.block{
+    padding-right: 10px;
+}
+.add-admin{
+    padding-right: 10px ;
+}

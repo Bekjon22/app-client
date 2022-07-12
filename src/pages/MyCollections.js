@@ -9,6 +9,7 @@ import {FormControl, FormHelperText, Input, InputLabel, MenuItem, TextField} fro
 import {toast} from "react-toastify";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { useNavigate } from 'react-router-dom';
 
 
 const MyCollections = () => {
@@ -21,6 +22,7 @@ const MyCollections = () => {
     const [description, setDescription] = React.useState();
     const [topic, setTopic] = React.useState();
 
+    const navigate = useNavigate()
 
 
     // const config = {
@@ -33,7 +35,8 @@ const MyCollections = () => {
             console.log(res.data.data)
             setClient(res.data.data)
         }).catch((error) => {
-            console.log(error.data+'err')
+            navigate('/')
+            toast.dark("You don't have permission!")
         })
     }
 
@@ -113,6 +116,9 @@ const MyCollections = () => {
         })
 
     }
+    const handleClickRow = (value) => {
+        navigate(`/collection/${value.id}`)
+    }
 
     return (
 
@@ -147,11 +153,8 @@ const MyCollections = () => {
                         console.log(value)
 
 
-                        function rowClick(event) {
-                            console.log(event)
-                        }
 
-                        return  <tr style={{cursor: 'pointer'}}>
+                        return  <tr style={{cursor: 'pointer'}} onClick={() => handleClickRow(value)}>
                             <td>{index + 1}</td>
                             <td>{value.name}</td>
                             <td>{value.topic}</td>

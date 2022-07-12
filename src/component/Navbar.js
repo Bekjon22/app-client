@@ -110,6 +110,11 @@ export default function PrimarySearchAppBar() {
     };
 
     const menuId = 'primary-search-account-menu';
+
+    function handleMenuCloseAdminPanel() {
+        window.location.href = "/user"
+    }
+
     const renderMenu = (
         <Menu
             anchorEl={anchorEl}
@@ -128,6 +133,7 @@ export default function PrimarySearchAppBar() {
         >
             <MenuItem onClick={handleMenuClose}>Login</MenuItem>
             <MenuItem onClick={handleMenuCloseMyAccount}>My account</MenuItem>
+            <MenuItem onClick={handleMenuCloseAdminPanel}>Admin panel</MenuItem>
         </Menu>
     );
     const leftMenu = (
